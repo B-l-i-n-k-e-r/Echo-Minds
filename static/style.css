@@ -169,11 +169,7 @@ button:hover {
     color: rgba(255, 255, 255, 0.5);
 }
 
-/* ----------------------------------------------------------------- */
-/* NEW NAVIGATION & CHAT SECTION (DO NOT REMOVE BELOW)          */
-/* ----------------------------------------------------------------- */
-
-/* Navigation Links */
+/* ---------- NAVIGATION & CHAT ---------- */
 .logout-link {
     color: #ff6b6b;
     text-decoration: none;
@@ -208,6 +204,7 @@ button:hover {
     z-index: 20;
 }
 
+/* Chat Header */
 .chat-header-sample {
     padding: 15px 25px;
     display: flex;
@@ -221,7 +218,7 @@ button:hover {
 .header-titles h2 { font-size: 18px; margin: 0; color: white; }
 .header-titles span { font-size: 11px; color: rgba(255,255,255,0.4); }
 
-/* Message Area */
+/* Chat Window Messages */
 #chat-window {
     flex-grow: 1;
     padding: 30px;
@@ -237,6 +234,7 @@ button:hover {
     font-size: 14.5px;
     line-height: 1.4;
     color: white;
+    transition: all 0.2s ease-in-out;
 }
 
 .bubble.left {
@@ -249,6 +247,19 @@ button:hover {
     align-self: flex-end;
     background: rgba(255, 255, 255, 0.25);
     border-radius: 20px 20px 5px 20px;
+}
+
+/* System messages for room closure / notifications */
+.bubble.system {
+    align-self: center;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ff6b6b;
+    font-style: italic;
+    border-radius: 15px;
+    padding: 8px 15px;
+    font-size: 13px;
+    max-width: 60%;
+    text-align: center;
 }
 
 /* Chat Footer */
@@ -285,6 +296,7 @@ button:hover {
     padding: 10px 30px !important;
     border-radius: 25px !important;
     font-weight: 600 !important;
+}
 
 /* ---------- FEEDBACK MESSAGES ---------- */
 .msg-feedback {
@@ -293,11 +305,5 @@ button:hover {
     font-weight: 500;
 }
 
-.msg-success {
-    color: #86efac; /* Mint Green */
-}
-
-.msg-error {
-    color: #ff6b6b; /* Soft Red */
-}
-}
+.msg-success { color: #86efac; } /* Mint Green */
+.msg-error { color: #ff6b6b; }   /* Soft Red */
