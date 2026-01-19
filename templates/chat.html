@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ room_name }} - ECHO Minds</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="login-background">
+        <div class="chat-window-container">
+            
+            <header class="chat-header-sample">
+                <div class="header-user-info">
+                    <a href="/rooms" class="back-arrow-link">←</a>
+                    
+                    <div class="avatar-placeholder"></div>
+                    <div class="header-titles">
+                        <h2>{{ room_name }}</h2>
+                        <span>Logged in as: {{ alias }}</span>
+                    </div>
+                </div>
+                <div style="color:rgba(255,255,255,0.6); font-size: 18px; cursor: pointer;">
+                    📞 &nbsp; 📹 &nbsp; ⓘ
+                </div>
+            </header>
+
+            <div id="chat-window">
+                </div>
+
+            <div class="chat-footer-sample">
+                <div class="input-pill-wrapper">
+                    <input type="text" id="message-input-sample" placeholder="Type a message..." autofocus autocomplete="off">
+                    <span style="opacity: 0.5; cursor: pointer;">🎤</span>
+                </div>
+                <button id="send-btn" class="green-send-button">Send</button>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="/static/chat.js"></script>
+    <script>
+        // Passes the user data to the WebSocket logic
+        startChat("{{ alias }}", "{{ room_name }}");
+    </script>
+</body>
+</html>

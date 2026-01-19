@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ECHO Minds - Rooms</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="login-background">
+        <div class="rooms-container">
+            <header class="rooms-header">
+                <h1>Welcome, {{ alias }}</h1>
+                <button onclick="openModal()" class="create-trigger">+ Create New Room</button>
+            </header>
+
+            <div class="room-section">
+                <h3>Join a Private Room</h3>
+                <form method="POST" action="/join_room" class="join-inline-form">
+                    <div class="input-group">
+                        <input type="text" name="room_name" placeholder="Room Name" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" name="room_password" placeholder="Password" required>
+                    </div>
+                    <button type="submit">Join Room</button>
+                </form>
+            </div>
+            
+            {% if message %}
+            <p class="error">{{ message }}</p>
+            {% endif %}
+        </div>
+
+        <div id="createModal" class="modal">
+            <div class="modal-content login-card">
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <h2>Create Room</h2>
+                <p class="subtitle">Set up a new private space</p>
+                
+                <form method="POST" action="/create_room">
+                    <div class="input-group">
+                        <input type="text" name="room_name" placeholder="Room Name" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" name="room_password" placeholder="Set Password" required>
+                    </div>
+                    <button type="submit">Create & Enter</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById("createModal").style.display = "flex";
+        }
+        function closeModal() {
+            document.getElementById("createModal").style.display = "none";
+        }
+        // Close modal if user clicks outside the card
+        window.onclick = function(event) {
+            let modal = document.getElementById("createModal");
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>

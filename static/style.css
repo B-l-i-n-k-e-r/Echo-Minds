@@ -1,0 +1,303 @@
+/* ---------- RESET & BASE ---------- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* ---------- BACKGROUND ---------- */
+.login-background {
+    height: 100vh;
+    width: 100vw;
+    background: url('/static/background.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+/* ---------- FROSTED GLASS CARD (Login/Rooms) ---------- */
+.login-card {
+    width: 380px;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1;
+}
+
+.login-card h1 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 20px;
+}
+
+/* ---------- FORMS & INPUTS ---------- */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 40px 12px 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.input-group .icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+/* ---------- BUTTONS ---------- */
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    background-color: #4caf50; 
+    color: #fff;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+/* ---------- ROOMS DASHBOARD LOOK ---------- */
+.rooms-container {
+    width: 600px;
+    padding: 40px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.rooms-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 20px;
+}
+
+.create-trigger {
+    width: auto;
+    padding: 10px 20px;
+    background: #4caf50;
+    font-size: 14px;
+}
+
+/* ---------- MODAL (POP-UP) ---------- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    position: relative;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-btn {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ----------------------------------------------------------------- */
+/* NEW NAVIGATION & CHAT SECTION (DO NOT REMOVE BELOW)          */
+/* ----------------------------------------------------------------- */
+
+/* Navigation Links */
+.logout-link {
+    color: #ff6b6b;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+.back-arrow-link {
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+    margin-right: 15px;
+    display: inline-block;
+    transition: 0.2s;
+}
+
+.back-arrow-link:hover { transform: translateX(-3px); }
+
+/* Chat Container */
+.chat-window-container {
+    width: 750px;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(25px);
+    border-radius: 35px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    z-index: 20;
+}
+
+.chat-header-sample {
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.header-user-info { display: flex; align-items: center; gap: 10px; text-align: left; }
+.avatar-placeholder { width: 45px; height: 45px; background: #666; border-radius: 50%; }
+.header-titles h2 { font-size: 18px; margin: 0; color: white; }
+.header-titles span { font-size: 11px; color: rgba(255,255,255,0.4); }
+
+/* Message Area */
+#chat-window {
+    flex-grow: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto;
+}
+
+.bubble {
+    max-width: 75%;
+    padding: 14px 20px;
+    font-size: 14.5px;
+    line-height: 1.4;
+    color: white;
+}
+
+.bubble.left {
+    align-self: flex-start;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px 20px 20px 5px;
+}
+
+.bubble.right {
+    align-self: flex-end;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 20px 20px 5px 20px;
+}
+
+/* Chat Footer */
+.chat-footer-sample {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.input-pill-wrapper {
+    flex-grow: 1;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    padding: 5px 20px;
+}
+
+#message-input-sample {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 10px 0;
+    outline: none;
+}
+
+.green-send-button {
+    background-color: #86efac !important;
+    color: #1a1a1a !important;
+    width: auto !important;
+    padding: 10px 30px !important;
+    border-radius: 25px !important;
+    font-weight: 600 !important;
+
+/* ---------- FEEDBACK MESSAGES ---------- */
+.msg-feedback {
+    font-size: 13px;
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+.msg-success {
+    color: #86efac; /* Mint Green */
+}
+
+.msg-error {
+    color: #ff6b6b; /* Soft Red */
+}
+}
