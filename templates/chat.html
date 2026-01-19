@@ -26,8 +26,7 @@
                 </div>
             </header>
 
-            <div id="chat-window">
-                </div>
+            <div id="chat-window"></div>
 
             <div class="chat-footer-sample">
                 <div class="input-pill-wrapper">
@@ -40,10 +39,14 @@
         </div>
     </div>
 
+    <!-- Load chat.js first -->
     <script src="/static/chat.js"></script>
+    <!-- Initialize chat only after DOM is loaded -->
     <script>
-        // Passes the user data to the WebSocket logic
-        startChat("{{ alias }}", "{{ room_name }}");
+        document.addEventListener("DOMContentLoaded", function() {
+            // Make sure startChat exists globally in chat.js
+            startChat("{{ alias }}", "{{ room_name }}");
+        });
     </script>
 </body>
 </html>
